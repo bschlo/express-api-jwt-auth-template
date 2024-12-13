@@ -9,7 +9,6 @@ import usersRouter from './controllers/users.js'
 import profilesRouter from './controllers/profiles.js'
 
 import bcrypt from 'bcrypt'
-
 import cors from 'cors'
 
 let PORT = process.env.PORT
