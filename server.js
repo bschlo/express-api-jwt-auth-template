@@ -10,6 +10,8 @@ import profilesRouter from './controllers/profiles.js'
 
 import bcrypt from 'bcrypt'
 
+import cors from 'cors'
+
 let PORT = process.env.PORT
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -19,10 +21,12 @@ mongoose.connection.on('connected', () => {
 });
 
 app.use(express.json());
+app.use(cors())
 
 app.use('/test-jwt', testJWTRouter)
 app.use('/users', usersRouter)
 app.use('/profiles', profilesRouter)
+
 
 app.get('/', (req, res) => {
     res.json({"message": 'Hello'})
