@@ -10,6 +10,8 @@ import profilesRouter from './controllers/profiles.js'
 
 import bcrypt from 'bcrypt'
 
+let PORT = process.env.PORT
+
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
@@ -23,6 +25,6 @@ app.use('/users', usersRouter)
 app.use('/profiles', profilesRouter)
 
 
-app.listen(3000, () => {
-  console.log('The express app is ready!');
+app.listen(PORT, () => {
+  console.log(`The express app is ready on ${PORT}!`);
 });
